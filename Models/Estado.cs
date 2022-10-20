@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace AgendaApp.Models
 {
-    public class TipoEvento
+    public class Estado
     {
         [PrimaryKey, AutoIncrement]
-        public int IdTipoEvento { get; set; }
+        public int IdEstado { get; set; }
+
+        [SQLite.MaxLength(10), Unique]
         public string Descripcion { get; set; }
-        public string NombreTipoEvento { get; set; }
+
     }
 }
