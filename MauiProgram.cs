@@ -12,7 +12,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-
+		string dbPath = FileAccessHelper.GetPathFile("agenda.db3");
 		return builder.Build();
 	}
 }

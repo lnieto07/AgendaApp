@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaApp.Views.EventoViews"
+             Title="EventoViews"
+             xmlns:vm="clr-namespace:AgendaApp.ViewModels"
+             x:DataType="vm:EventoViewModel">
+    <VerticalStackLayout
+        Padding="0,10,0,0"
+        HorizontalOptions="Center"
+        WidthRequest="200">
+        
+        <Label Grid.Row="0" Text="Fecha Evento:" />
+        <DatePicker Grid.Row="0" Date="{Binding FechaEvento}" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="3"
+            Text="Descripción:" />
+        <Editor 
+            Placeholder="Ingrese Eevento"
+            HeightRequest="100"
+            Grid.Row="4"
+            Grid.Column="0"
+            Text="{Binding Descripcion}" />
+        
+        
+        <Label Grid.Row="4" Text="Fecha Fin Evento:" />
+        <DatePicker Grid.Row="5" Date="{Binding FechaFinEvento}"/>
+        <CollectionView
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="0,10"
+            BackgroundColor="LightCoral"
+            ItemsSource="{Binding Errores}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label
+                        Padding="5"
+                        LineBreakMode="WordWrap"
+                        MinimumWidthRequest="190"
+                        Text="{Binding .}"
+                        TextColor="White" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <VerticalStackLayout HorizontalOptions="Center">
+            <ImageButton
+                Command="{Binding GuardarEventoCommand}"
+                IsEnabled="{Binding IsEnabled}"
+                IsVisible="{Binding IsEnabled}"
+                Source="save.png" />
+
+            <ActivityIndicator
+                IsEnabled="{Binding IsBusy}"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}" />
+
+            <Frame BackgroundColor="Green" IsVisible="{Binding IsVisible}">
+                <Label
+                    FontSize="Title"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Resultado}"
+                    TextColor="White" />
+            </Frame>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

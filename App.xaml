@@ -2,6 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AgendaApp"
+             xmlns:vi="clr-namespace:AgendaApp.Views"
              x:Class="AgendaApp.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,4 +12,16 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+    
+    <Application.MainPage>
+        <Shell FlyoutBehavior="Flyout" FlyoutHeaderBehavior="Fixed" FlyoutVerticalScrollMode="Auto">
+            <FlyoutItem Title="Eventos">
+                <ShellContent ContentTemplate="{DataTemplate vi:ListadoEventosViews}"/>
+            </FlyoutItem>
+            <FlyoutItem Title="Nuevo">
+                <ShellContent ContentTemplate="{DataTemplate vi:EventoViews}"/>
+            </FlyoutItem>
+        </Shell>
+    </Application.MainPage>
+        
 </Application>

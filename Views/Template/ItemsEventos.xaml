@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mo="clr-namespace:AgendaApp.Models"
+             x:Class="AgendaApp.Views.Template.ItemsEventos">
+    <HorizontalStackLayout Padding="2" BackgroundColor="Beige" x:DataType="mo:Evento">
+        <Label Text="{Binding FechaEvento}"/>
+        <Label Text="{Binding Descripcion}"/>
+        <Label Text="{Binding IdEstado}"/>
+    </HorizontalStackLayout>
+</ContentView>
