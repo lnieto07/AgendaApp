@@ -13,6 +13,9 @@ public class SQLLiteHelper<T> : SQLLiteBase where T: BaseModels, new()
     public T Get(int id)
         => _connection.Table<T>().Where(w => w.Id == id).FirstOrDefault();
 
+    public List<T> GetByDay(DateTime diaseleccionado)
+        => _connection.Table<T>().Where(w => w.Dia.Date == diaseleccionado.Date).ToList();
+
     public int Add(T row)
     {
         _connection.Insert(row);

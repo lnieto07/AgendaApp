@@ -10,6 +10,8 @@ namespace AgendaApp.Services
 
         public Task<List<Evento>> GetAll()
             => Task.FromResult(db.GetAllData());
+        public Task<List<Evento>> GetByDay(DateTime dia)
+            => Task.FromResult(db.GetByDay(dia));
 
         public Task<Evento> GetById(int id) 
             => Task.FromResult(db.Get(id));

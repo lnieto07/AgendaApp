@@ -2,10 +2,54 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mo="clr-namespace:AgendaApp.Models"
+             xmlns:vm="clr-namespace:AgendaApp.ViewModels"
              x:Class="AgendaApp.Views.Template.ItemsEventos">
-    <HorizontalStackLayout Padding="2" BackgroundColor="Beige" x:DataType="mo:Evento">
-        <Label Text="{Binding FechaEvento}"/>
-        <Label Text="{Binding Descripcion}"/>
-        <Label Text="{Binding IdEstado}"/>
-    </HorizontalStackLayout>
+    <!--<HorizontalStackLayout Padding="2" BackgroundColor="Beige" x:DataType="mo:Evento">-->
+        <Grid Margin="0,5,0,5">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <VerticalStackLayout Grid.Column="0" Grid.Row="0" x:DataType="mo:Evento">
+            <Button TextColor="White" Text="{Binding Id}"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ListadoEventosViewModels}}, Path=EditarEventoCommand}"
+                    CommandParameter="{Binding .}"/>
+                <Label FontAttributes="Bold" 
+                                       Text="{Binding HoraEvento}"/>
+                <Label FontAttributes="Bold" 
+                                       Text="{Binding HoraFinEvento}"/>
+        </VerticalStackLayout>
+
+        <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="CornflowerBlue">
+                    <VerticalStackLayout x:DataType="mo:Evento" Grid.Column="0">
+                        <Label FontAttributes="Bold" Text="{Binding Titulo}"/>
+                        <Label Text="{Binding Descripcion}"/>
+                        <Label Text="{Binding Lugar}"/>
+                    </VerticalStackLayout>
+        </Frame>
+        <VerticalStackLayout
+                    Grid.Column="2"
+                   x:DataType="vm:ListadoEventosViewModels">
+            <ImageButton
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ListadoEventosViewModels}}, Path=EditarEventoCommand}"
+                    CommandParameter="{Binding .}"
+                    Source="edit.png"
+                    WidthRequest="40" />
+            <ImageButton
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ListadoEventosViewModels}}, Path=EliminarEventoCommand}"
+                    CommandParameter="{Binding .}"
+                    Source="trash.png"
+                    WidthRequest="40"/>
+        </VerticalStackLayout>
+  
+    </Grid>
+    <!--<Label Text="{Binding FechaEvento}"/>
+            <Label Text="{Binding Descripcion}"/>
+            <Label Text="{Binding IdEstado}"/>-->
+   
+    <!--</HorizontalStackLayout>-->
 </ContentView>

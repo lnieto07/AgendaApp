@@ -6,5 +6,6 @@ namespace AgendaApp.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        public DateTime Dia { get; set; } = DateTime.Now;
     }
 }

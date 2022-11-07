@@ -7,16 +7,19 @@
     xmlns:vi="clr-namespace:AgendaApp.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    
-    <!--<ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate vi:ListadoEventosViews}"
-        Route="ListadoEventosViews" />
-    <ShellContent
-        Title="Nuevo Evento"
-        ContentTemplate="{DataTemplate vi:EventoViews}"
-        Route="EventoViews"/>-->
-
+    <TabBar >
+         
+        <ShellContent
+            Title="Lista "
+            ContentTemplate="{DataTemplate vi:ListadoEventosViews}"
+            Route="ListadoEventosViews"
+            Icon="list.svg"/>
+        <ShellContent
+            Title="Nuevo Evento"
+            ContentTemplate="{DataTemplate vi:EventoViews}"
+            Route="EventoViews"
+            Icon="pluscirclefill.svg"/>
+    </TabBar>
 
 
 

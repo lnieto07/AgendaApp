@@ -12,16 +12,17 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
-    
+
     <Application.MainPage>
-        <Shell FlyoutBehavior="Flyout" FlyoutHeaderBehavior="Fixed" FlyoutVerticalScrollMode="Auto">
-            <FlyoutItem Title="Eventos">
-                <ShellContent ContentTemplate="{DataTemplate vi:ListadoEventosViews}"/>
+        <Shell FlyoutBehavior="Flyout" FlyoutHeaderBehavior="Fixed" FlyoutVerticalScrollMode="Auto" BackgroundColor="Blue">
+            <FlyoutItem Title="Listar Eventos">
+                <ShellContent ContentTemplate="{DataTemplate vi:ListadoEventosViews}" />
             </FlyoutItem>
-            <FlyoutItem Title="Nuevo">
+            <FlyoutItem Title="Nuevo Evento">
                 <ShellContent ContentTemplate="{DataTemplate vi:EventoViews}"/>
             </FlyoutItem>
         </Shell>
     </Application.MainPage>
-        
+
+
 </Application>
